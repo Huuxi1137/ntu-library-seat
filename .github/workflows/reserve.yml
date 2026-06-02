@@ -6,7 +6,7 @@ name: auto_Reserve
 # or API.
 on:
   schedule:
-    - cron: "59 21 * * 0,1,2,3,4" # 周一到周五每天早上5:59启动（防止github action过于高负载）
+    - cron: "0 23 * * *" # 每天北京时间7:00启动（UTC 23:00），SLEEPTIME=0.2s间隔抢到7:01
   workflow_dispatch:
   
 jobs:
@@ -30,6 +30,7 @@ jobs:
           USERNAMES: ${{ secrets.USERNAMES }}
           PASSWORDS: ${{ secrets.PASSWORDS }}
         run: |
-          python main.py -m debug --action
+          sleep 5  # 晚5秒开始抢
+          python main.py -m reserve --action
 
 
