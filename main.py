@@ -24,7 +24,7 @@ get_current_dayofweek = lambda action: (
 
 
 SLEEPTIME = 0.2  # 每次抢座的间隔
-ENDTIME = "07:01:00"  # 7:00开放抢座，抢到7:01停止
+ENDTIME = "23:59:00"  # 允许全天任意时间抢座
 
 ENABLE_SLIDER = True  # 开启滑块验证码
 MAX_ATTEMPT = 5  # 最大尝试次数
